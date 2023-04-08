@@ -1,0 +1,22 @@
+$ ghc --make xmonad.hs -i -ilib -fforce-recomp -main-is main -dynamic -v0 -outputdir /home/ave/.xmonad/build-x86_64-linux -o /home/ave/.xmonad/xmonad-x86_64-linux
+
+xmonad.hs:19:14: error: Empty record update
+   |
+19 |     xmonad $ defaultConfig {
+   |              ^^^^^^^^^^^^^^^...
+
+xmonad.hs:21:11: error:
+    • Syntax error on 'additionalKeysP'
+      Perhaps you intended to use TemplateHaskell or TemplateHaskellQuotes
+    • In the Template Haskell quotation 'additionalKeysP'
+   |
+21 |         } 'additionalKeysP' customKeys
+   |           ^^^^^^^^^^^^^^^^^
+
+xmonad.hs:268:1: error:
+    Multiple declarations of ‘main’
+    Declared at: xmonad.hs:18:1
+                 xmonad.hs:268:1
+    |
+268 | main = xmonad defaults
+    | ^^^^

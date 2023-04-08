@@ -13,7 +13,22 @@ import System.Exit
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import XMonad.Util.EZConfig
 
+main = do
+    xmonad $ defaultConfig {
+        --
+        } 'additionalKeysP' customKeys
+
+customKeys = 
+    [
+        --
+    ]
+    ++
+    [ (mask ++ "M-" ++ [key], screenWorkspace scr >>= flip whenJust (windows . action))
+         | (key, scr)  <- zip "wer" [2,0,q] 
+         , (action, mask) <- [ (W.view, "") , (W.shift, "S-")]
+    ]
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
@@ -286,7 +301,7 @@ help :: String
 help = unlines ["The default modifier key is 'alt'. Default keybindings:",
     "",
     "-- launching and killing programs",
-    "mod-Shift-Enter  Launch xterminal",
+    "mod-Shift-Enter  Launch alacritty",
     "mod-p            Launch dmenu",
     "mod-Shift-p      Launch gmrun",
     "mod-Shift-c      Close/kill the focused window",
