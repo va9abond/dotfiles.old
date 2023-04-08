@@ -23,3 +23,57 @@ vim.cmd([[
      autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup END
 ]])
+
+
+--- #### Section 2 ####
+
+return require('packer').startup(function(use) 
+    
+    use { 'wbthomason/packer.nvim' }
+
+-- ====================================================================
+    -- base IDE tools
+
+    use {
+        'windwp/nvim-autopairs',
+        config = function()
+            require('modules.autopairs')
+        end,
+    }
+
+    use { 
+        'nvim-tree/nvim-tree.lua',
+        config = function()
+            require('modules.nvimtree')
+        end,
+
+        requires = {
+            'nvim-tree/nvim-web-devicons', 
+        }
+    }
+
+    use { 
+        'numToStr/Comment.nvim',
+        config = function()
+            require('modules.comment')
+        end,
+    }
+
+-- ====================================================================
+    -- treesitter
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        config = function()
+            require('modules.treesitter')
+        end,
+    }
+
+
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if packer_bootstrap then
+        require('packer').sync()
+    end
+end)

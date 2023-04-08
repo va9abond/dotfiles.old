@@ -47,8 +47,10 @@ opt.termguicolors = true
 
 -- #### Section 3 ####
 
-g.tagbar_compact = 1 -- compact tagbar view
-g.tagbar_sort    = 0 -- disable alphabetic tags sort
+g.tagbar_compact     = 1 -- compact tagbar view
+g.tagbar_sort        = 0 -- disable alphabetic tags sort
+g.loaded_netrw       = 1
+g.loaded_netrwPlugin = 1
 
 -- explanation https://habr.com/ru/post/64224/
 o.number      = true
