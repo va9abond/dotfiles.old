@@ -72,41 +72,39 @@ return require('packer').startup(function(use)
     -- LSP Server
     
     use {
-        'williamboman/mason-lspconfig.nvim',
-
+        'williamboman/mason-lspconfig.nvim' 
+    }
+    
+    use {
         'neovim/nvim-lspconfig',
         config = function()
             require('modules.lsp.lspconfig')
         end,
+    } 
 
-        requires = {
-            'hrsh7th/cmp-nvim-lsp'
-        }
+    use {
+        'hrsh7th/nvim-cmp',
+        config = function()
+            require('modules.lsp.nvim-cmp')
+        end,
     }
 
     use {
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
-
-        'hrsh7th/nvim-cmp',
-        config = function()
-            require('modules.lsp.nvimcmp')
-        end,
-    }
-
-    use {
         'L3MON4D3/LuaSnip',
-        'saadparwaiz1/cmp_luasnip'
+        'saadparwaiz1/cmp_luasnip',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-nvim-lua'
     }
 
     -- to look pretier
-    
     use {
         'onsails/lspkind.nvim' -- config through nvimcmp
     }
 
--- ====================================================================
+    -- ====================================================================
     -- treesitter
 
     use {
@@ -116,14 +114,14 @@ return require('packer').startup(function(use)
         end,
     }
 
--- ====================================================================
+    -- ====================================================================
     -- Other plugins
 
     use {
         'ellisonleao/gruvbox.nvim'
     }
 
--- ====================================================================
+    -- ====================================================================
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

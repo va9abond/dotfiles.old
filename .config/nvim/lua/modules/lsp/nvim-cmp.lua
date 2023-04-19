@@ -21,7 +21,18 @@ cmp.setup({
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
-        ['<C-Space>'] = cmp.mapping.complete( {select = true} ),
+        -- ['<CR>'] = cmp.mapping({
+        --     i = function(fallback)
+        --         if cmp.visible() and cmp.get_active_entry() then
+        --             cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+        --         else
+        --             fallback()
+        --         end
+        --     end,
+        --     s = cmp.mapping.confirm({ select = true }),
+        --     c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+        -- }),
+        ['<CR>'] = cmp.mapping.confirm( {select = true} )
     }),
 
     sources = cmp.config.sources({
@@ -65,7 +76,7 @@ local lspkind = require('lspkind')
 cmp.setup {
     formatting = {
         format = lspkind.cmp_format({
-            mode = "symbol_text",
+            mode = "text",
             menu = ({
                 buffer        = "[Buffer]",
                 nvim_lsp      = "[LSP]",
