@@ -40,7 +40,8 @@ o.hlsearch   = true
 -- #### Section 2 ####
 
 opt.termguicolors = true
--- o.background      = 'dark'
+o.background      = 'dark'
+cmd( [[colorscheme gruvbox]] )
 -- cmd[ [colorscheme tokyonight-storm] ]
 -- cmd[ [colorscheme base16-gruvbox-dark-medium] ]
 

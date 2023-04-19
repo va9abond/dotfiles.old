@@ -31,6 +31,15 @@ return require('packer').startup(function(use)
     
     use { 'wbthomason/packer.nvim' }
 
+    use { 
+        'williamboman/mason.nvim',
+        run = ":MasonUpdate",
+        config = function()
+            require('modules.mason.mason-config')
+        end,
+    }
+
+
 -- ====================================================================
     -- base IDE tools
 
@@ -41,22 +50,60 @@ return require('packer').startup(function(use)
         end,
     }
 
-    use { 
-        'nvim-tree/nvim-tree.lua',
-        config = function()
-            require('modules.nvimtree')
-        end,
-
-        requires = {
-            'nvim-tree/nvim-web-devicons', 
-        }
-    }
+    -- use { 
+    --     'nvim-tree/nvim-tree.lua',
+    --     config = function()
+    --         require('modules.nvimtree')
+    --     end,
+    --
+    --     requires = {
+    --         'nvim-tree/nvim-web-devicons', 
+    --     }
+    -- }
 
     use { 
         'numToStr/Comment.nvim',
         config = function()
             require('modules.comment')
         end,
+    }
+
+-- ====================================================================
+    -- LSP Server
+    
+    use {
+        'williamboman/mason-lspconfig.nvim',
+
+        'neovim/nvim-lspconfig',
+        config = function()
+            require('modules.lsp.lspconfig')
+        end,
+
+        requires = {
+            'hrsh7th/cmp-nvim-lsp'
+        }
+    }
+
+    use {
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+
+        'hrsh7th/nvim-cmp',
+        config = function()
+            require('modules.lsp.nvimcmp')
+        end,
+    }
+
+    use {
+        'L3MON4D3/LuaSnip',
+        'saadparwaiz1/cmp_luasnip'
+    }
+
+    -- to look pretier
+    
+    use {
+        'onsails/lspkind.nvim' -- config through nvimcmp
     }
 
 -- ====================================================================
@@ -69,7 +116,14 @@ return require('packer').startup(function(use)
         end,
     }
 
+-- ====================================================================
+    -- Other plugins
 
+    use {
+        'ellisonleao/gruvbox.nvim'
+    }
+
+-- ====================================================================
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
