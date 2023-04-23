@@ -56,10 +56,10 @@ require('lspconfig')['clangd'].setup {
     flags = lsp_flags,
 }
 
--- require('lspconfig')['lua-language-server'].setup {
---     on_attach = on_attach,
---     flags = lsp_flags,
--- }
+require('lspconfig')['lua_ls'].setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
 
 -- require('lspconfig')['julia-lsp'].setup {
 --     on_attach = on_attach,

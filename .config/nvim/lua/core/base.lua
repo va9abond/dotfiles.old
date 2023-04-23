@@ -41,10 +41,10 @@ o.hlsearch   = true
 
 opt.termguicolors = true
 o.background      = 'dark'
-cmd( [[colorscheme gruvbox]] )
--- cmd[ [colorscheme tokyonight-storm] ]
--- cmd[ [colorscheme base16-gruvbox-dark-medium] ]
-
+-- cmd( [[colorscheme gruvbox]] )
+-- cmd( [[colorscheme tokyonight-moon]] )
+cmd( [[colorscheme base16-gruvbox-dark-hard]] )
+-- cmd.colorscheme('gruvbox')
 
 -- #### Section 3 ####
 

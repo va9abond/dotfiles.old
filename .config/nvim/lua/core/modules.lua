@@ -2,6 +2,12 @@
 
 -- #### Section 1 ####
 
+local status, packer = pcall(require, "packer")
+if not status then
+	print("Packer is not installed")
+	return
+end
+
 -- auto install packer.nvim
 local ensure_packer = function()
   local fn = vim.fn
@@ -19,15 +25,15 @@ local packer_bootstrap = ensure_packer()
 -- reloads nvim every time I save file plugins.lua
 vim.cmd([[
     augroup packer_user_config
-      autocmd!
-     autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup END
+        autocmd!
+        autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    augroup END
 ]])
 
 
 --- #### Section 2 ####
 
-return require('packer').startup(function(use) 
+packer.startup(function(use) 
     
     use { 'wbthomason/packer.nvim' }
 
@@ -39,9 +45,20 @@ return require('packer').startup(function(use)
         end,
     }
 
+    use {
+        'nvim-lua/plenary.nvim'
+    }
+
 
 -- ====================================================================
     -- base IDE tools
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        config = function()
+            require('modules.evilline')
+        end,
+    }
 
     use {
         'windwp/nvim-autopairs',
@@ -50,15 +67,15 @@ return require('packer').startup(function(use)
         end,
     }
 
+    use {
+        'nvim-tree/nvim-web-devicons'
+    }
+    
     -- use { 
     --     'nvim-tree/nvim-tree.lua',
     --     config = function()
     --         require('modules.nvimtree')
-    --     end,
-    --
-    --     requires = {
-    --         'nvim-tree/nvim-web-devicons', 
-    --     }
+    --     end, 
     -- }
 
     use { 
@@ -118,7 +135,26 @@ return require('packer').startup(function(use)
     -- Other plugins
 
     use {
+        'ThePrimeagen/harpoon',
+        config = function()
+            require('modules.harpoon')
+        end,
+    }
+
+    use {
         'ellisonleao/gruvbox.nvim'
+    }
+
+    -- use {
+    --     'morhetz/gruvbox'
+    -- }
+    
+    use {
+        'folke/tokyonight.nvim'
+    }
+
+    use {
+        'RRethy/nvim-base16'
     }
 
     -- ====================================================================
