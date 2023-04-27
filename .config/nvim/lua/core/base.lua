@@ -50,8 +50,11 @@ cmd( [[colorscheme base16-gruvbox-dark-hard]] )
 
 g.tagbar_compact     = 1 -- compact tagbar view
 g.tagbar_sort        = 0 -- disable alphabetic tags sort
-g.loaded_netrw       = 1
-g.loaded_netrwPlugin = 1
+-- g.loaded_netrw       = 1
+-- g.loaded_netrwPlugin = 1
+g.netrw_banner       = 0 -- hide netrw banner 
+g.netrw_liststyle    = 3 -- tree instead of plain view
+g.netrw_browse_split = 3 -- open file in new tab 
 
 -- explanation https://habr.com/ru/post/64224/
 o.number      = true
