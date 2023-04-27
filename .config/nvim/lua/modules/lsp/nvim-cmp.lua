@@ -71,7 +71,6 @@ cmp.event:on(
     cmp_autopairs.on_confirm_done()
 )
 
-local cmp = require('cmp')
 local lspkind = require('lspkind')
 cmp.setup {
     formatting = {
