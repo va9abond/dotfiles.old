@@ -15,6 +15,8 @@ map('n', '<leader>h', '<CMD>nohlsearch<CR>')
 map('n', '<C-s>', '<CMD>w<CR>')      -- Ctr-s : to save the file in nmode 
 map('i', '<C-s>', '<ESC><CMD>w<CR>') -- Ctr-s : to save the file in imode
 
+map('n', '<Tab>', '<CMD>tabnext<CR>')
+map('n', '<S-Tab>', '<CMD>tabprev<CR>')
 -- Fix * (Keep cursor position, don't move to next match)
 -- map('n', '*', '*N')
 
@@ -61,8 +63,8 @@ map('n', '<leader>b', '<CMD>split<CR>')
 
 -- Use operator pending mode to visually select the whole buffer
 -- e.g. dA = delete buffer ALL, yA = copy whole buffer ALL
--- map('o', 'A', ':<C-U>normal! mzggVG<CR>`z')
--- map('x', 'A', ':<C-U>normal! ggVG<CR>')
+map('o', 'A', ':<C-U>normal! mzggVG<CR>`z')
+map('x', 'A', ':<C-U>normal! ggVG<CR>')
 
 
 -- Section 'harpoon'

@@ -85,6 +85,13 @@ packer.startup(function(use)
         end,
     }
 
+    use {
+        'akinsho/toggleterm.nvim',
+        tag = '*',
+        config = function()
+            require('modules.toggleterm')
+        end
+    }
 -- ====================================================================
     -- LSP Server
     
@@ -129,6 +136,20 @@ packer.startup(function(use)
         config = function()
             require('modules.treesitter')
         end,
+    }
+
+    -- ====================================================================
+    -- telescope
+    
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        config = function()
+            require('modules.telescope')
+        end,
+    }
+    
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim'
     }
 
     -- ====================================================================
