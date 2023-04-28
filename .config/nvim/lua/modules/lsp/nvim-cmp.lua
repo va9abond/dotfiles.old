@@ -14,7 +14,7 @@ cmp.setup({
         -- ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<TAB>'] = cmp.mapping.select_next_item(),
-        
+
         ['<C-Space'] = cmp.mapping.complete(),
         ['<C-e>']    = cmp.mapping.abort(),
 
@@ -39,7 +39,7 @@ cmp.setup({
         { name = 'nvim_lsp' },
         { name = 'buffer'   },
         { name = 'luasnip'  },
-    }, 
+    },
         {
             { name = 'buffer' }
         }

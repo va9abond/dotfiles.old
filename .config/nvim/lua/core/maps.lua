@@ -5,8 +5,8 @@ local function map(m,k,v)
 end
 
 
-map('i', '<leader>tb', '<CMD>TagbarToggle<CR>')
-map('n', '<leader>tb', '<CMD>TagbarToggle<CR>')
+-- map('i', '<leader>tb', '<CMD>TagbarToggle<CR>')
+-- map('n', '<leader>tb', '<CMD>TagbarToggle<CR>')
 
 map('i', 'jk', '<ESC>')
 
@@ -47,7 +47,7 @@ map('n', '<leader>O', 'O<ESC>')
 
 -- split window
 map('n', '<leader>v', '<CMD>vsplit<CR>')
-map('n', '<leader>b', '<CMD>split<CR>')
+map('n', '<leader>x', '<CMD>split<CR>')
 
 -- map('n', '<C-j>', '<C-W>j')
 -- map('i', '<C-j>', '<C-W>j')
@@ -66,6 +66,23 @@ map('n', '<leader>b', '<CMD>split<CR>')
 map('o', 'A', ':<C-U>normal! mzggVG<CR>`z')
 map('x', 'A', ':<C-U>normal! ggVG<CR>')
 
+
+-- Section 'tmux-vim-navigator'
+
+-- map('n', '<C-h>', '<C-w><left>')
+-- map('n', '<C-j>', '<C-w><down>')
+-- map('n', '<C-k>', '<C-w><up>')
+-- map('n', '<C-l>', '<C-w><right>')
+
+map('n', '<C-h>', '<CMD>TmuxNavigateLeft<CR>')
+map('n', '<C-j>', '<CMD>TmuxNavigateDown<CR>')
+map('n', '<C-k>', '<CMD>TmuxNavigateUp<CR>')
+map('n', '<C-l>', '<CMD>TmuxNavigateRight<CR>')
+
+map('i', '<C-h>', '<CMD>TmuxNavigateLeft<CR>')
+map('i', '<C-j>', '<CMD>TmuxNavigateDown<CR>')
+map('i', '<C-k>', '<CMD>TmuxNavigateUp<CR>')
+map('i', '<C-l>', '<CMD>TmuxNavigateRight<CR>')
 
 -- Section 'harpoon'
 -- from the quickmenu, open a file in: a vertical split with control+v, a horizontal split with control+x, a new tab with control+t

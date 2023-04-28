@@ -33,11 +33,11 @@ vim.cmd([[
 
 --- #### Section 2 ####
 
-packer.startup(function(use) 
-    
+packer.startup(function(use)
+
     use { 'wbthomason/packer.nvim' }
 
-    use { 
+    use {
         'williamboman/mason.nvim',
         run = ":MasonUpdate",
         config = function()
@@ -70,7 +70,7 @@ packer.startup(function(use)
     use {
         'nvim-tree/nvim-web-devicons'
     }
-    
+
     -- use { 
     --     'nvim-tree/nvim-tree.lua',
     --     config = function()
@@ -78,7 +78,7 @@ packer.startup(function(use)
     --     end, 
     -- }
 
-    use { 
+    use {
         'numToStr/Comment.nvim',
         config = function()
             require('modules.comment')
@@ -92,19 +92,20 @@ packer.startup(function(use)
             require('modules.toggleterm')
         end
     }
+
 -- ====================================================================
     -- LSP Server
-    
+
     use {
-        'williamboman/mason-lspconfig.nvim' 
+        'williamboman/mason-lspconfig.nvim'
     }
-    
+
     use {
         'neovim/nvim-lspconfig',
         config = function()
             require('modules.lsp.lspconfig')
         end,
-    } 
+    }
 
     use {
         'hrsh7th/nvim-cmp',
@@ -140,14 +141,14 @@ packer.startup(function(use)
 
     -- ====================================================================
     -- telescope
-    
+
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         config = function()
             require('modules.telescope')
         end,
     }
-    
+
     use {
         'nvim-telescope/telescope-fzf-native.nvim'
     }
@@ -166,10 +167,10 @@ packer.startup(function(use)
         'ellisonleao/gruvbox.nvim'
     }
 
-    -- use {
-    --     'morhetz/gruvbox'
-    -- }
-    
+    use {
+        'christoomey/vim-tmux-navigator'
+    }
+
     use {
         'folke/tokyonight.nvim'
     }
