@@ -45,9 +45,7 @@ packer.startup(function(use)
         end,
     }
 
-    use {
-        'nvim-lua/plenary.nvim'
-    }
+    use { 'nvim-lua/plenary.nvim' }
 
 
 -- ====================================================================
@@ -56,7 +54,14 @@ packer.startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',
         config = function()
-            require('modules.evilline')
+            require('modules.lualine')
+        end,
+    }
+
+    use {
+        'kdheepak/tabline.nvim',
+        config = function()
+            require('modules.tabline')
         end,
     }
 
@@ -71,12 +76,12 @@ packer.startup(function(use)
         'nvim-tree/nvim-web-devicons'
     }
 
-    -- use { 
-    --     'nvim-tree/nvim-tree.lua',
-    --     config = function()
-    --         require('modules.nvimtree')
-    --     end, 
-    -- }
+    use {
+        'nvim-tree/nvim-tree.lua',
+        config = function()
+            require('modules.nvimtree')
+        end,
+    }
 
     use {
         'numToStr/Comment.nvim',
@@ -85,20 +90,18 @@ packer.startup(function(use)
         end,
     }
 
-    use {
-        'akinsho/toggleterm.nvim',
-        tag = '*',
-        config = function()
-            require('modules.toggleterm')
-        end
-    }
+    -- use {
+    --     'akinsho/toggleterm.nvim',
+    --     tag = '*',
+    --     config = function()
+    --         require('modules.toggleterm')
+    --     end
+    -- }
 
 -- ====================================================================
     -- LSP Server
 
-    use {
-        'williamboman/mason-lspconfig.nvim'
-    }
+    use { 'williamboman/mason-lspconfig.nvim' }
 
     use {
         'neovim/nvim-lspconfig',
@@ -126,7 +129,7 @@ packer.startup(function(use)
 
     -- to look pretier
     use {
-        'onsails/lspkind.nvim' -- config through nvimcmp
+        'onsails/lspkind.nvim' -- config through nvim-cmp
     }
 
     -- ====================================================================
@@ -164,20 +167,24 @@ packer.startup(function(use)
     }
 
     use {
-        'ellisonleao/gruvbox.nvim'
+        'ellisonleao/gruvbox.nvim',
+        config = function()
+            require('modules.gruvbox')
+        end,
     }
 
     use {
-        'christoomey/vim-tmux-navigator'
+        'bartekprtc/gruv-vsassist.nvim',
+        config = function()
+            require('modules.assistX')
+        end,
     }
 
-    use {
-        'folke/tokyonight.nvim'
-    }
+    use { 'christoomey/vim-tmux-navigator' }
 
-    use {
-        'RRethy/nvim-base16'
-    }
+    use { 'folke/tokyonight.nvim' }
+
+    use { 'RRethy/nvim-base16' }
 
     -- ====================================================================
 

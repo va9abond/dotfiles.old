@@ -1,12 +1,14 @@
 -- Auto complition config
 -- https://github.com/hrsh7th/nvim-cmp/
 
+
 local cmp = require('cmp')
+
 
 cmp.setup({
 
     window = {
-        complition = cmp.config.window.bordered(),
+        complition = cmp.config.window.bordered(), -- TODO: doesn't work for me
         documentation = cmp.config.window.bordered(),
     },
 
@@ -21,7 +23,7 @@ cmp.setup({
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
-        -- ['<CR>'] = cmp.mapping({
+        -- ["<CR>"] = cmp.mapping({
         --     i = function(fallback)
         --         if cmp.visible() and cmp.get_active_entry() then
         --             cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
@@ -39,12 +41,26 @@ cmp.setup({
         { name = 'nvim_lsp' },
         { name = 'buffer'   },
         { name = 'luasnip'  },
-    },
-        {
-            { name = 'buffer' }
-        }
-    ),
+        { name = 'buffer' }
+    }),
 })
+
+
+-- disable completion in certain context, such as comments
+cmp.setup({
+    enabled = function()
+        -- disable completion in comments
+        local context = require 'cmp.config.context'
+        -- keep command mode completion enabled when cursor is in a comment
+        if vim.api.nvim_get_mode().mode == 'c' then
+            return true
+        else
+            return not context.in_treesitter_capture("comment")
+                and not context.in_syntax_group("Comment")
+        end
+    end
+})
+
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
@@ -54,9 +70,12 @@ cmp.setup.cmdline({ '/', '?' }, {
     }
 })
 
+
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
+    mapping = cmp.mapping.preset.cmdline({
+        ['<CR>'] = cmp.mapping.confirm( {select = true} )
+    }),
     sources = cmp.config.sources({
         { name = 'path' }
     }, {
@@ -64,12 +83,14 @@ cmp.setup.cmdline(':', {
         })
 })
 
+
 -- If you want insert `(` after select function or method item
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
     'confirm_done',
     cmp_autopairs.on_confirm_done()
 )
+
 
 local lspkind = require('lspkind')
 cmp.setup {
@@ -84,4 +105,5 @@ cmp.setup {
                 latex_symbols = "[Latex]",
             })
         }),
-    },}
+    },
+}

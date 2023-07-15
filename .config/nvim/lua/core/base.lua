@@ -15,7 +15,7 @@ cmd ([[
 ]])
 
 opt.mouse    = 'a'      -- allow me use mouse
-o.hidden     = true	-- allow me open next buffer without presaving previous
+o.hidden     = true	    -- allow me open next buffer without presaving previous
 o.history    = 100      -- 
 o.autowrite  = true     -- auto save before :next, :make etc
 o.autoread   = true     -- auto reread changed files without asking me anything
@@ -41,10 +41,31 @@ o.hlsearch   = true
 
 opt.termguicolors = true
 o.background      = 'dark'
--- cmd( [[colorscheme gruvbox]] )
--- cmd( [[colorscheme tokyonight-moon]] )
-cmd( [[colorscheme base16-gruvbox-dark-hard]] )
--- cmd.colorscheme('gruvbox')
+
+-- local function change_colorscheme()
+--     -- if (vim.bo.filetype == '.cpp' )
+--     vim.cmd.colorscheme('gruv-vsassist')
+-- end
+--
+-- cmd([[
+--     augroup cppFileColorscheme
+--         autocmd!
+--         auto FileTyep c,cpp,h,hpp lua change_colorscheme()
+--     augroup END
+-- ]])
+
+cmd([[
+    colorscheme gruvbox
+]])
+-- cmd([[
+--     colorscheme gruv-vsassist
+-- ]])
+-- cmd([[
+--     colorscheme tokyonight-night
+-- ]])
+-- cmd([[
+--     colorscheme base16-gruvbox-dark-hard
+-- ]])
 
 -- #### Section 3 ####
 
@@ -60,12 +81,13 @@ g.netrw_browse_split = 3 -- open file in new tab
 o.number      = true
 o.tabstop     = 4     -- indentation is equal <n> spaces
 o.shiftwidth  = 4     -- in normal mode use >> and << to indent and outdent; in visual mode use > and <
-o.smarttab    = true  
+o.smarttab    = true
 o.expandtab   = true  -- tab to spaces?
-o.smartindent = true  
+o.smartindent = true
 o.cindent     = true  -- nice indentation in C files
 
-o.wrap      = true   -- soft wrap 
+o.wrap      = false   -- soft wrap 
+o.tw        = 0
 o.linebreak = true   -- no linebreak in the middle of a word
 
 

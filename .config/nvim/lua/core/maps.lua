@@ -7,6 +7,7 @@ end
 
 -- map('i', '<leader>tb', '<CMD>TagbarToggle<CR>')
 -- map('n', '<leader>tb', '<CMD>TagbarToggle<CR>')
+map('n', '<C-m>', '<CMD>NvimTreeToggle<CR>')
 
 map('i', 'jk', '<ESC>')
 
@@ -92,9 +93,8 @@ vim.keymap.set('n', '<leader>m', mark.add_file)
 vim.keymap.set('n', '<leader>n', mark.rm_file)
 vim.keymap.set('n', '<C-e>',     ui.toggle_quick_menu)
 
--- vim.keymap.set('n', '<C-1>', function() ui.nav_file(1) end)
--- vim.keymap.set('n', '<C-2>', function() ui.nav_file(2) end)
--- vim.keymap.set('n', '<C-3>', function() ui.nav_file(3) end)
--- vim.keymap.set('n', '<C-4>', function() ui.nav_file(4) end)
-vim.keymap.set('n', '<C-q>', function() ui.nav_next() end)
-vim.keymap.set('n', '<C-w>', function() ui.nav_prev() end)
+-- vim.keymap.set('n', '<C-q>', function() ui.nav_next() end)
+-- vim.keymap.set('n', '<C-w>', function() ui.nav_prev() end)
+
+
+map('n', 'C-m', "<CMD>exec '!g++' shellescape(@%,1) '-o out; ./out'<CR>")
