@@ -38,7 +38,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -74,19 +74,29 @@ plugins=( git z zsh-syntax-highlighting )
 
 source $ZSH/oh-my-zsh.sh
 
+
+# -------------------------------------------------------------------
 # User configuration
+# -------------------------------------------------------------------
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+
+# -------------------------------------------------------------------
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# -------------------------------------------------------------------
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR="nvim"
+else
+  export EDITOR="nvim"
+fi
+
+export TERM="screen-256color"
+export VISUAL="nvim"
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -100,6 +110,53 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# -------------------------------------------------------------------
+# alias: ls 
+# -------------------------------------------------------------------
+alias ls="ls --color=auto"
+alias ll="ls -lav --ignore=.."   # show long listing of all except ".."
+alias l="ls -lav --ignore=.?*"   # show long listing but no hidden dotfiles except "."
+
+
+# -------------------------------------------------------------------
+# git 
+# -------------------------------------------------------------------
+# Add & Commit
+alias ga="git add"
+alias gaa="git add --all"
+alias gc="git commit -v"
+alias gc!="git commit -v --amend"
+alias gca="git commit -v -a"
+alias gca!="git commit -v -a -amend"
+alias gcam="git commit -a -m"
+alias gcmsg="git commit -m"
+
+# Checkout & Branch
+alias gco="git checkout"
+# alias local-branches="!git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'"
+# alias conflicts="diff --name-only --diff-filter=U"
+
+# Logs
+alias glo="git log --oneline --decorate --color"
+alias glog="git log --graph --oneline --decorate --color"
+alias gls="git log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate"
+alias gll="git log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat"
+alias glls="git log --pretty=format:'%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --date=short"
+
+# Work in Progress
+alias gst="git status"
+alias gss="git status -s"
+alias gbl="git blame --color-by-age" # --color-lines 
+
+# -------------------------------------------------------------------
+# alias: dotfiles
+# -------------------------------------------------------------------
+alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 config config --local status.showUntrackedFiles no
 
+
+# -------------------------------------------------------------------
+# alias: other
+# -------------------------------------------------------------------
+alias v="nvim"
