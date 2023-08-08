@@ -246,4 +246,4 @@ alias mocp="bash -c mocp"
 
 ### SETTING THE STARSHIP PROMPT ###
 # starship init fish | source
-
+set -x DEBUGINFOD_URLS "https://debuginfod.archlinux.org"

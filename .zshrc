@@ -105,22 +105,8 @@ export VISUAL="nvim"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
 # -------------------------------------------------------------------
-# alias: ls 
-# -------------------------------------------------------------------
-alias ls="ls --color=auto"
-alias ll="ls -lav --ignore=.."   # show long listing of all except ".."
-alias l="ls -lav --ignore=.?*"   # show long listing but no hidden dotfiles except "."
-
-
-# -------------------------------------------------------------------
-# git 
+# alias: git 
 # -------------------------------------------------------------------
 # Add & Commit
 alias ga="git add"
@@ -156,7 +142,25 @@ alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 config config --local status.showUntrackedFiles no
 
 
+alias zshconf="nvim ~/.zshrc"
+alias zshso="source ~/.zshrc"
+# alias ohmyzsh="nvim ~/.oh-my-zsh"
+
+alias tmuxconf="nvim ~/.config/tmux/tmux.conf"
+alias tmuxso="tmux source-file ~/.config/tmux/tmux.conf"
+
+alias nvimconf="nvim ~/.config/nvim/init.lua"
+alias nvimso="source ~/.config/nvim/init.lua"
+alias cdnvim="cd ~/.config/nvim"
+alias alacconf="nvim ~/.config/alacritty/alacritty.yml"
+alias alacso="source ~/.config/alacritty/alacritty.yml"
+
 # -------------------------------------------------------------------
 # alias: other
 # -------------------------------------------------------------------
 alias v="nvim"
+alias ls="ls --color=auto"
+alias ll="ls -lav --ignore=.." # show long listing of all except ".."
+alias l="ls -lav -ignore=.?*"  # show long but no hidden dotfiles except "."
+
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"

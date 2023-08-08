@@ -1,12 +1,12 @@
--- 
-
--- #### Section 1 ####
-
+-- ==================================================================
+-- Packed Setup
+-- ==================================================================
 local status, packer = pcall(require, "packer")
 if not status then
 	print("Packer is not installed")
 	return
 end
+
 
 -- auto install packer.nvim
 local ensure_packer = function()
@@ -22,6 +22,7 @@ end
 
 local packer_bootstrap = ensure_packer()
 
+
 -- reloads nvim every time I save file plugins.lua
 vim.cmd([[
     augroup packer_user_config
@@ -31,9 +32,13 @@ vim.cmd([[
 ]])
 
 
---- #### Section 2 ####
-
+-- ==================================================================
+-- Install Plugins
+-- ==================================================================
 packer.startup(function(use)
+
+-- ==================================================================
+    --
 
     use { 'wbthomason/packer.nvim' }
 
@@ -49,7 +54,7 @@ packer.startup(function(use)
 
 
 -- ====================================================================
-    -- base IDE tools
+    -- Base
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -72,9 +77,7 @@ packer.startup(function(use)
         end,
     }
 
-    use {
-        'nvim-tree/nvim-web-devicons'
-    }
+    use { 'nvim-tree/nvim-web-devicons' }
 
     use {
         'nvim-tree/nvim-tree.lua',
@@ -90,13 +93,6 @@ packer.startup(function(use)
         end,
     }
 
-    -- use {
-    --     'akinsho/toggleterm.nvim',
-    --     tag = '*',
-    --     config = function()
-    --         require('modules.toggleterm')
-    --     end
-    -- }
 
 -- ====================================================================
     -- LSP Server
@@ -127,13 +123,12 @@ packer.startup(function(use)
         'hrsh7th/cmp-nvim-lua'
     }
 
-    -- to look pretier
-    use {
-        'onsails/lspkind.nvim' -- config through nvim-cmp
-    }
+    use { 'onsails/lspkind.nvim' } -- config through nvim-cmp
 
-    -- ====================================================================
-    -- treesitter
+
+
+-- ====================================================================
+    -- Treesitter
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -142,8 +137,9 @@ packer.startup(function(use)
         end,
     }
 
-    -- ====================================================================
-    -- telescope
+
+-- ====================================================================
+    -- Telescope
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -156,7 +152,7 @@ packer.startup(function(use)
         'nvim-telescope/telescope-fzf-native.nvim'
     }
 
-    -- ====================================================================
+-- ====================================================================
     -- Other plugins
 
     use {
@@ -180,16 +176,21 @@ packer.startup(function(use)
         end,
     }
 
-    use { 'christoomey/vim-tmux-navigator' }
-
     use { 'folke/tokyonight.nvim' }
 
     use { 'RRethy/nvim-base16' }
 
-    -- ====================================================================
 
+-- ====================================================================
+    -- Plugin to connect tmux and neovim
+
+    use { 'christoomey/vim-tmux-navigator' }
+
+
+-- ====================================================================
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
+-- ====================================================================
     if packer_bootstrap then
         require('packer').sync()
     end

@@ -1,17 +1,3 @@
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
-
-
--- empty setup using defaults
-require("nvim-tree").setup()
-
-
--- OR setup with some options
 require("nvim-tree").setup({
     on_attach = on_attach,
 
@@ -47,7 +33,7 @@ local function on_attach(bufnr)
     --
     -- BEGIN_DEFAULT_ON_ATTACH
     vim.keymap.set('n', '<C-]>', api.tree.change_root_to_node,          opts('CD'))
-    vim.keymap.set('n', '<C-e>', api.node.open.replace_tree_buffer,     opts('Open: In Place'))
+    -- vim.keymap.set('n', '<C-e>', api.node.open.replace_tree_buffer,     opts('Open: In Place'))
     vim.keymap.set('n', '<C-k>', api.node.show_info_popup,              opts('Info'))
     vim.keymap.set('n', '<C-r>', api.fs.rename_sub,                     opts('Rename: Omit Filename'))
     vim.keymap.set('n', '<C-t>', api.node.open.tab,                     opts('Open: New Tab'))
@@ -79,8 +65,8 @@ local function on_attach(bufnr)
     vim.keymap.set('n', 'gy',    api.fs.copy.absolute_path,             opts('Copy Absolute Path'))
     vim.keymap.set('n', 'H',     api.tree.toggle_hidden_filter,         opts('Toggle Dotfiles'))
     vim.keymap.set('n', 'I',     api.tree.toggle_gitignore_filter,      opts('Toggle Git Ignore'))
-    vim.keymap.set('n', 'J',     api.node.navigate.sibling.last,        opts('Last Sibling'))
-    vim.keymap.set('n', 'K',     api.node.navigate.sibling.first,       opts('First Sibling'))
+    -- vim.keymap.set('n', 'J',     api.node.navigate.sibling.last,        opts('Last Sibling'))
+    -- vim.keymap.set('n', 'K',     api.node.navigate.sibling.first,       opts('First Sibling'))
     vim.keymap.set('n', 'm',     api.marks.toggle,                      opts('Toggle Bookmark'))
     vim.keymap.set('n', 'o',     api.node.open.edit,                    opts('Open'))
     vim.keymap.set('n', 'O',     api.node.open.no_window_picker,        opts('Open: No Window Picker'))
