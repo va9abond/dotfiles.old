@@ -1,0 +1,11 @@
+[init]
+	defaultBranch = master
+[user]
+	email = avesirazetdinov@gmail.com
+    name  = Rustem Sirazetdinov
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
