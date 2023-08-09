@@ -152,6 +152,22 @@ packer.startup(function(use)
         'nvim-telescope/telescope-fzf-native.nvim'
     }
 
+
+-- ====================================================================
+    -- Compiler
+
+    -- use {
+    --     'stevearc/overseer.nvim',
+    --     config = function()
+    --         require('overseer').setup()
+    --     end,
+    -- }
+    --
+    -- use {
+    --     'Zeioth/compiler.nvim',
+    -- }
+
+
 -- ====================================================================
     -- Other plugins
 

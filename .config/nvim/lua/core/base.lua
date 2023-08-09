@@ -39,12 +39,14 @@ o.smartcase  = true
 o.incsearch  = true
 o.hlsearch   = true
 
+-- cmd ([[ let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1 ]])
 
 -- ==================================================================
 -- #### Section 2 ####
 -- ==================================================================
 
 opt.termguicolors = true
+opt.guicursor     = ""
 o.background      = 'dark'
 
 -- local function change_colorscheme()
